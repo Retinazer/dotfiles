@@ -1,0 +1,40 @@
+#! /bin/bash
+# ______ _    ____  ___ ______  ___  ______
+# |  _  \ |  | |  \/  | | ___ \/ _ \ | ___ \
+# | | | | |  | | .  . | | |_/ / /_\ \| |_/ /
+# | | | | |/\| | |\/| | | ___ \  _  ||    /
+# | |/ /\  /\  / |  | | | |_/ / | | || |\ \
+# |___/  \/  \/\_|  |_/ \____/\_| |_/\_| \_|
+#
+# Retinazer's status bar script for DWM
+
+timeDate() {
+	TIME="$(date +"%l:%M%p")"
+DATE="$(date +"%a %b %d, %Y")"
+	echo -e "^b#1e252c^^c#d0d0d0^$TIME   "
+}
+
+battery() {
+	BAT="$(cat /sys/class/power_supply/BAT0/capacity)"
+	CHARSTAT="$(cat /sys/class/power_supply/AC/online)"
+	[ "$CHARSTAT" -eq "1" ] && echo -e "^b#1e252c^^c#d0d0d0^$BAT ^c#81878f^\ue201"
+	[ "$CHARSTAT" -eq "0" ] && echo -e "^b#1e252c^^c#d0d0d0^$BAT ^c#81878f^\ue1ff"
+}
+
+volume() {
+	VOL="$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')"
+	echo -e "^b#1e252c^^c#d0d0d0^$VOL ^c#81878f^\ue050"
+}
+
+network() {
+	WIFISTATUS="$(cat /sys/class/net/wl*/operstate)"
+	ETHSTATUS="$(cat /sys/class/net/eth*/operstate)"
+	[ "$ETHSTATUS" = "up" ] && echo -e "^b#1e252c^   ^c#d0d0d0^Wired ^c#81878f^\ue149"
+	[ "$WIFISTATUS" = "up" ] && echo -e "^b#1e252c^   ^c#d0d0d0^$(connmanctl services | grep \* | head -n 1 | awk '{print $2}') ^c#81878f^\ue048"
+	[ "$ETHSTATUS" = "down" ] && [ $WIFISTATUS = "down" ] && echo -e "^b#1e252c^   ^c#d0d0d0^Disconnected ^c#81878f^\ue21f"
+}
+
+while true; do
+	xsetroot -name "$(network) $(volume) $(battery) $(timeDate)"
+	sleep 1s
+done
