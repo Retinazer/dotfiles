@@ -43,6 +43,7 @@ unzip
 wget
 wpa_supplicant
 xorg-server
+xorg-xbacklight
 xorg-xinit
 xorg-xinput
 xorg-xrandr
