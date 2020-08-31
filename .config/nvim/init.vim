@@ -35,7 +35,7 @@ Plug 'ncm2/ncm2-bufword' " Completion words from current buffer
 Plug 'ncm2/ncm2-path' " Path completion
 Plug 'ncm2/ncm2-ultisnips' " Ultisnips integration for ncm2
 Plug 'ncm2/ncm2-cssomni' " CSS completion
-Plug 'ncm2/ncm2-tern' " Ternjs based javascript completion for ncm2
+Plug 'ncm2/ncm2-tern', {'do': 'npm install'} " Ternjs based javascript completion for ncm2
 Plug 'SirVer/ultisnips' " Code snippets engine
 Plug 'honza/vim-snippets' " The snippets (seperate from engine)
 call plug#end()
