@@ -4,6 +4,7 @@ atool
 autorandr
 bitfetch
 calcurse
+cava
 cmus
 davfs2
 dragon-drag-and-drop
@@ -19,6 +20,7 @@ man
 mpv
 newsboat
 nnn
+nodejs
 noto-fonts-emoji
 p7zip
 pass
