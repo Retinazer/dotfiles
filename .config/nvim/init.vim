@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter' " Show git diff info in gutter
 Plug 'vimwiki/vimwiki' " Maintain your own wiki
 Plug 'mcchrish/nnn.vim' " File browser
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multi cursors
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy search files
 
 " Autocompletion
@@ -116,6 +117,9 @@ let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
+
+" FZF Settings
+nnoremap <leader>f :Files<CR>
 
 " Fix splits
 set splitbelow splitright
