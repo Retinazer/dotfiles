@@ -2,6 +2,7 @@ alsa-utils
 archivemount
 atool
 autorandr
+bat
 bitfetch
 calcurse
 cava
