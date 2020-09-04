@@ -57,7 +57,7 @@ set termguicolors
 filetype plugin indent on
 
 " Save file as sudo when no sudo permissions
-cmap w!! w !sudo tee > /dev/null %
+cmap SW SudoWrite
 
 " Tab space and shift width
 set ts=2 sw=2
