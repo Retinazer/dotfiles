@@ -3,6 +3,7 @@ archivemount
 atool
 autorandr
 bat
+bc
 bitfetch
 calcurse
 cava
@@ -11,7 +12,6 @@ davfs2
 dragon-drag-and-drop
 dunst
 fzf
-galculator
 htop
 irssi
 libxft-bgra-git
