@@ -24,7 +24,6 @@ Plug 'vim-scripts/auto-pairs' " Generate auto pairs
 Plug 'airblade/vim-gitgutter' " Show git diff info in gutter
 Plug 'vimwiki/vimwiki' " Maintain your own wiki
 Plug 'mcchrish/nnn.vim' " File browser
-Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multi cursors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy search files
 
